@@ -219,3 +219,6 @@ pip-log.txt
 *.bak
 *.exe
 *BackUp/
+
+#保密文件
+EncryptKey.au3

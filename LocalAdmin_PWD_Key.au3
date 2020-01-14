@@ -1,7 +1,8 @@
 #NoTrayIcon
-#include "nd.local.au3"
-$sTxtPW = InputBox("输入新密码", "输入要生产变量指的4-8位新密码")
-If $sTxtPW = "" Or StringLen($sTxtPW) > 8 Or StringLen($sTxtPW) < 3 Or Not StringIsASCII($sTxtPW) Then
+#include "EncryptKey.au3"
+
+$sTxtPW = InputBox("输入新密码", "输入要生产变量的6-8位新密码")
+If $sTxtPW = "" Or StringLen($sTxtPW) > 8 Or StringLen($sTxtPW) < 6 Or Not StringIsASCII($sTxtPW) Then
 	MsgBox(0, "错误", "输入不合规范！")
 	Exit
 EndIf

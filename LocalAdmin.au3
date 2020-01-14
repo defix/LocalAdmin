@@ -1,19 +1,18 @@
 #NoTrayIcon
 #RequireAdmin
 #include <WinAPI.au3>
-#include "nd.local.au3"
+#include "EncryptKey.au3"
 
 $sLAKey = EnvGet("LA_pwdkey")
 If $sLAKey <> "" Then
 	$sPwd = StringEncrypt(0, EnvGet("LA_pwdkey"), $EncryptKey, $EncryptLevel, $EncryptFlag)
 Else
-	$sPwd = "96123"
+	$sPwd = $sPreSetKey
 EndIf
 
 $iPID = Run(@ComSpec & " /c net user", "", @SW_HIDE, $STDOUT_CHILD)
 ProcessWaitClose($iPID)
 $sCMDoutput = StdoutRead($iPID)
-;~ ConsoleWrite($sCMDoutput)
 If Not StringInStr($sCMDoutput, "LAdmin", 0) Then
 	RunWait(@ComSpec & " /c net user LAdmin " & StringLeft(@ComputerName, 5) & $sPwd & " /add", "", @SW_HIDE)
 EndIf

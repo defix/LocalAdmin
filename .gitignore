@@ -215,10 +215,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-# AU3 工作目录临时文件
-*.bak
-*.exe
-*BackUp/
-
 #保密文件
 EncryptKey.au3
